@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,7 @@ TagManager:
     locked: 0
   - name: Ball
     uniqueID: 1428244149
+    locked: 0
+  - name: Goal
+    uniqueID: 628323439
     locked: 0

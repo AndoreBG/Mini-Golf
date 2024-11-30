@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     [Header("Referencias")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LineRenderer lr;
+    [SerializeField] private GameObject goalFX;
 
     [Header("Atributos")]
     [SerializeField] private float maxPower = 10f;
@@ -19,6 +20,11 @@ public class Ball : MonoBehaviour
     private void Update()
     {
         PlayerInput();
+
+        if (LevelManager.main.outOfStrokes && rb.velocity.magnitude <= 0.2f && !LevelManager.main.levelCompleted)
+        {
+            LevelManager.main.GameOver();
+        }
     }
 
     private bool isReady()
@@ -64,8 +70,38 @@ public class Ball : MonoBehaviour
             return;
         }
 
+        LevelManager.main.IncreaseStroke();
+
         Vector2 dir = (Vector2)transform.position - pos;
 
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);
+    }
+
+    private void CheckWinState() 
+    {
+        if (inHole) return;
+
+        if(rb.velocity.magnitude <= maxGoalSpeed) 
+        {
+            inHole = true;
+
+            rb.velocity = Vector2.zero;
+            gameObject.SetActive(false);
+
+            GameObject fx = Instantiate(goalFX, transform.position, Quaternion.identity);
+            Destroy(fx, 1.5f);
+
+            LevelManager.main.LevelComplete();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Goal") CheckWinState();
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Goal") CheckWinState();
     }
 }
