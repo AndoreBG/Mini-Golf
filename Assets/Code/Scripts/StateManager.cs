@@ -14,4 +14,9 @@ public class StateManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
 }
