@@ -17,6 +17,18 @@ public class Ball : MonoBehaviour
     private bool isDragging;
     private bool inHole;
 
+    [Header("Audios")]
+    [SerializeField] private AudioClip hitSound;
+    [SerializeField] private AudioClip goalSound;
+    [SerializeField] private AudioClip winGameSound;
+
+    private AudioSource audioSource;
+
+    private void Start() 
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         PlayerInput();
@@ -42,7 +54,6 @@ public class Ball : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && distance <= 0.5f) DragStart();
         if (Input.GetMouseButton(0) && isDragging) DragChange(inputPos);
         if (Input.GetMouseButtonUp(0) && isDragging) DragRelease(inputPos);
-
     }
 
     private void DragStart()
@@ -75,6 +86,8 @@ public class Ball : MonoBehaviour
         Vector2 dir = (Vector2)transform.position - pos;
 
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);
+
+        PlayHitSound();
     }
 
     private void CheckWinState() 
@@ -83,10 +96,12 @@ public class Ball : MonoBehaviour
 
         if(rb.velocity.magnitude <= maxGoalSpeed) 
         {
+            PlayGoalSound();
             inHole = true;
 
             rb.velocity = Vector2.zero;
-            gameObject.SetActive(false);
+
+            this.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
             GameObject fx = Instantiate(goalFX, transform.position, Quaternion.identity);
             Destroy(fx, 1.5f);
@@ -103,5 +118,23 @@ public class Ball : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Goal") CheckWinState();
+    }
+
+    private void PlayHitSound()
+    {
+        audioSource.clip = hitSound;
+        audioSource.Play();
+    }
+
+    private void PlayGoalSound()
+    {
+        audioSource.clip = goalSound;
+        audioSource.Play();
+    }
+
+    private void PlayWinGameSound()
+    {
+        audioSource.clip = winGameSound;
+        audioSource.Play();
     }
 }
