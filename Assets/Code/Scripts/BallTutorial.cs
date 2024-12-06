@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class BallTutorial : MonoBehaviour
 {
     [SerializeField] private GameObject Sombra;
 
@@ -35,9 +35,9 @@ public class Ball : MonoBehaviour
     {
         PlayerInput();
 
-        if (LevelManager.main.outOfStrokes && rb.velocity.magnitude <= 0.2f && !LevelManager.main.levelCompleted)
+        if (LevelManagerTutorial.main.outOfStrokes && rb.velocity.magnitude <= 0.2f && !LevelManagerTutorial.main.levelCompleted)
         {
-            LevelManager.main.GameOver();
+            LevelManagerTutorial.main.GameOver();
         }
     }
 
@@ -83,7 +83,7 @@ public class Ball : MonoBehaviour
             return;
         }
 
-        LevelManager.main.IncreaseStroke();
+        LevelManagerTutorial.main.IncreaseStroke();
 
         Vector2 dir = (Vector2)transform.position - pos;
 
@@ -109,7 +109,7 @@ public class Ball : MonoBehaviour
             GameObject fx = Instantiate(goalFX, transform.position, Quaternion.identity);
             Destroy(fx, 1.5f);
 
-            LevelManager.main.LevelComplete();
+            LevelManagerTutorial.main.LevelComplete();
         }
     }
 
