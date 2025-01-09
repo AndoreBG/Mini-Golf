@@ -1,5 +1,6 @@
 # MINI GOLF
-O repositório "Mini-Golf" é um projeto de jogo de mini-golfe desenvolvido na Unity. O projeto está em estágio avançado, com o jogo finalizado.
+O repositório "Mini-Golf" é um projeto de jogo de mini-golfe desenvolvido na Unity. O projeto está em estágio avançado, com o jogo finalizado.  
+Link para download: https://andregorzoni.itch.io/mini-golf
 
 ### Principais Pontos de Funcionalidade
 
