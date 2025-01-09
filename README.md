@@ -13,8 +13,6 @@ O repositório "Mini-Golf" é um projeto de jogo de mini-golfe desenvolvido na U
 -   HLSL (Linguagem de Sombreamento de Alto Nível)
 
 ### Participantes no Projeto
-- André B Gorzoni
-[![linkedin](https://img.shields.io/badge/linkedin-000?style=for-the-badge&logo=linkedin&logoColor=blue)](https://www.linkedin.com/in/andre-gorzoni/)
+- [![André B Gorzoni](https://img.shields.io/badge/linkedin-000?style=for-the-badge&logo=linkedin&logoColor=blue)](https://www.linkedin.com/in/andre-gorzoni/)
 
-- Samuel Leander
-[![linkedin](https://img.shields.io/badge/linkedin-000?style=for-the-badge&logo=linkedin&logoColor=blue)](https://www.linkedin.com/in/samuel-leander-vieira/)
+- [![Samuel Leander](https://img.shields.io/badge/linkedin-000?style=for-the-badge&logo=linkedin&logoColor=blue)](https://www.linkedin.com/in/samuel-leander-vieira/)
