@@ -1,4 +1,9 @@
-# MINI GOLF ![Static Badge](https://img.shields.io/badge/status-%20finalizado-green)
+# MINI GOLF 
+
+![Unity](https://img.shields.io/badge/Unity-2D-black?style=for-the-badge&logo=unity)
+![Status](https://img.shields.io/badge/Status-Finalizado-green?style=for-the-badge)
+![Gênero](https://img.shields.io/badge/Gêneros-Simulation%20|%20Sports-red?style=for-the-badge)
+
 O repositório "Mini-Golf" é um projeto de jogo de mini-golfe desenvolvido na Unity. O projeto está em estágio avançado, com o jogo finalizado.  
 Link para download: https://andregorzoni.itch.io/mini-golf
 
